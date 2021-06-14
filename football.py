@@ -1,4 +1,7 @@
 import numpy as np
+from operator import itemgetter
+import os
+import sys
 
 class Team:
     def __init__(self, name, group):
@@ -60,15 +63,22 @@ def match(homename, awayname, goalshome, goalsaway, teamlist):
 
 def displaygroup(teamlist, group):
     print("\nGROUP "+group)
-    print(('').center(170,'—'))
+    print(('').center(168,'—'))
     for i in ["Team","GP","W","D","L","GF","GA","Goal Avg."]:
         print(i.ljust(20), end='')
     print("Points")
-    print(('').center(170,'—'))
+    print(('').center(168,'—'))
+    tuple =[]
     for i in range(len(teamlist)):
         if teamlist[i].group == group:
-            teamlist[i].print()
-    print(('').center(170,'—'))
+            tuple.append((i, teamlist[i].points, teamlist[i].goalsfor - teamlist[i].goalsagainst, teamlist[i].goalsfor))
+    tuple.sort(key = itemgetter(3))
+    tuple.sort(key = itemgetter(2))
+    tuple.sort(key = itemgetter(1))
+    tuple = tuple[::-1]
+    for i in tuple:     
+        teamlist[i[0]].print()
+    print(('').center(168,'—'))
 
 def initialise(filename):
     groups = ['A','B','C','D','E','F']
@@ -106,9 +116,13 @@ def savefile(file, teamlist):
         f.write('\n')
     f.close()
 
-
-lis = readfile('Euro2020.dat')
-n = int(input('How many matches played today?: '))
+filename = sys.argv[1]
+if not os.path.exists(filename):
+    lis = initialise(filename)
+else:
+    lis = readfile(filename)
+try: n = int(input('How many matches played today?: '))
+except: pass
 for i in range(0,n):
     home        = input('Home team: ')
     away        = input('Away team: ')
@@ -117,7 +131,12 @@ for i in range(0,n):
     match(home, away, goalshome, goalsaway, lis)
 
 groups = ['A','B','C','D','E','F']
-for group in groups:
-    displaygroup(lis, group)
+try: choice = input('Display what group? (Write \'all\' for all groups): ').upper()
+except: pass
+os.system('clear')
+if choice == 'ALL':
+    for group in groups:
+        displaygroup(lis, group)
+else: displaygroup(lis, choice)
 
-savefile('Euro2020.dat',lis)
+savefile(filename,lis)

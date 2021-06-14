@@ -14,10 +14,10 @@ Croatia	D	1	0	0	1	0	1	0
 Czechia	D	1	1	0	0	2	0	3	
 England	D	1	1	0	0	1	0	3	
 Scotland	D	1	0	0	1	0	2	0	
-Poland	E	0	0	0	0	0	0	0	
-Slovakia	E	0	0	0	0	0	0	0	
-Spain	E	0	0	0	0	0	0	0	
-Sweden	E	0	0	0	0	0	0	0	
+Poland	E	1	0	0	1	1	2	0	
+Slovakia	E	1	1	0	0	2	1	3	
+Spain	E	1	0	1	0	0	0	1	
+Sweden	E	1	0	1	0	0	0	1	
 France	F	0	0	0	0	0	0	0	
 Germany	F	0	0	0	0	0	0	0	
 Hungary	F	0	0	0	0	0	0	0	
