@@ -2,6 +2,7 @@ import numpy as np
 from operator import itemgetter
 import os
 import sys
+from colorama import Fore, Style
 
 class Team:
     def __init__(self, name, group):
@@ -76,8 +77,19 @@ def displaygroup(teamlist, group):
     tuple.sort(key = itemgetter(2))
     tuple.sort(key = itemgetter(1))
     tuple = tuple[::-1]
-    for i in tuple:     
-        teamlist[i[0]].print()
+    pos = 0
+    for i in tuple:
+        if pos == 0 or pos==1:
+            print(Fore.GREEN)
+            teamlist[i[0]].print()
+            print(Style.RESET_ALL)
+        if pos == 2:
+            teamlist[i[0]].print()
+        if pos == 3:
+            print(Fore.RED)
+            teamlist[i[0]].print()
+            print(Style.RESET_ALL)        
+        pos +=1
     print(('').center(168,'—'))
 
 def initialise(filename):

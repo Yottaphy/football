@@ -18,7 +18,7 @@ Poland	E	1	0	0	1	1	2	0
 Slovakia	E	1	1	0	0	2	1	3	
 Spain	E	1	0	1	0	0	0	1	
 Sweden	E	1	0	1	0	0	0	1	
-France	F	0	0	0	0	0	0	0	
-Germany	F	0	0	0	0	0	0	0	
-Hungary	F	0	0	0	0	0	0	0	
-Portugal	F	0	0	0	0	0	0	0	
+France	F	1	1	0	0	1	0	3	
+Germany	F	1	0	0	1	0	1	0	
+Hungary	F	1	0	0	1	0	3	0	
+Portugal	F	1	1	0	0	3	0	3	
